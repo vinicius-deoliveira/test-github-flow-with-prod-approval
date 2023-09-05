@@ -1,0 +1,38 @@
+name: Deploy to Google Cloud Run
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+
+  test: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: test
+        run: echo test
+
+  deploy-dev: 
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: deploy dev
+        run: echo deploy-dev
+
+  deploy-prod:
+    needs: deploy-dev
+    environment: prod
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: deploy prod
+        run: echo deploy-prod

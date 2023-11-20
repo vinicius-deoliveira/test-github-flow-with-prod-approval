@@ -30,7 +30,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: test
-        run: echo test
+        run: udsahduhasudhas test
 
   deploy-dev: 
     needs: test
